@@ -1,0 +1,21 @@
+cluster:
+  name: homelab
+  envs:
+    - stg
+    - prod
+  domain: schooner.local
+  logging:
+    retentionPeriod: 7d
+    volumeSize: 5Gi
+  metrics:
+    retentionPeriod: 7d
+    volumeSize: 5Gi
+  secrets:
+    awsRegion: ap-southeast-2
+  services:
+    - name: portfolio
+      repoUrl: https://github.com/tim-ings/portfolio
+      descriptorPath: service.yaml
+      enabledEnvs:
+        - stg
+        - prod
